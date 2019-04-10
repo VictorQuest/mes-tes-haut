@@ -1,22 +1,50 @@
 <template>
 <div>
-
   <span class="input">
     <input type="text" class="form-control" v-model="city" placeholder="Enter your City Here">
     <span></span>
   </span>
   <button class="form-button" type="submit" name="button" @click="getApi(city)">GO</button>
-  <div>
-    <p >{{hub}}</p>
-    <p>{{degree}}</p>
-    <p>{{crow}}</p>
-    <p>{{speed}}</p>
-    <p>{{date}}</p>
-
-
-  </div>
-
+    <b-container class="list-group"></b>
+      <p class="list-group-item">{{hub}}</p>
+      <p class="list-group-item">{{degree}}</p>
+      <p class="list-group-item">{{crow}}</p>
+      <p class="list-group-item">{{speed}}</p>
+      <p class="list-group-item">{{date}}</p>
+    </b-container>
 </div>
+<div>
+  <b-alert show variant="success">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>
+      Aww yeah, you successfully read this important alert message. This example text is going to
+      run a bit longer so that you can see how spacing within an alert works with this kind of
+      content.
+    </p>
+    <hr>
+    <p class="mb-0">
+      Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+    </p>
+  </b-alert>
+</div>
+<div>
+  <b-card
+    title="Card Title"
+    img-src="https://picsum.photos/600/300/?image=25"
+    img-alt="Image"
+    img-top
+    tag="article"
+    style="max-width: 20rem;"
+    class="mb-2"
+  >
+    <b-card-text>
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+    </b-card-text>
+
+    <b-button href="#" variant="primary">Go somewhere</b-button>
+  </b-card>
+</div>
+
 
 </template>
 
@@ -43,9 +71,9 @@ export default {
         this.hub = response.data.city.name;
         console.log(this.hub);
         this.degree = response.data.list[0].main.temp;
-        this.crow= response.data.city.population;
-        this.speed= response.data.list[0].wind.speed;
-        this.date= response.data.list[0][2² ²   ² ²].dt_txt;
+        this.crow = response.data.city.population;
+        this.speed = response.data.list[0].wind.speed;
+        this.date = response.data.list[0].dt_txt;
 
       })
 
@@ -101,5 +129,11 @@ transition: all 0.4s ease 0s;
 			transform: scale(1);
 		}
 
+
+    list-group{
+     position: inherit;
+     top: 2px;
+     padding-left: 8px;
+   }
 
 </style>
